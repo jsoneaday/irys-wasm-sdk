@@ -12,8 +12,8 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn connect_to_irys() -> Irys {
-    let irys = Irys::new(None, None, None);
+pub fn connect_to_irys(url: Option<String>, token: Option<String>, key: Option<String>) -> Irys {
+    let irys = Irys::new(url, token, key);
     //println!("irys {}", irys);
     irys
 }
