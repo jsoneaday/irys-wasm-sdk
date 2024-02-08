@@ -1,12 +1,21 @@
 {
-  "name": "www",
+  "name": "expose-irys",
   "private": true,
   "version": "0.0.0",
-  "main": "dist/main.js",
-  "type": "module",
-  "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.es.js",
+      "require": "./dist/main.cjs.js"
+    }
+  },
+  "main": "./dist/main.cjs.js",
+  "module": "./dist/main.es.js",
+  "typings": "./dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "dev": "cd .. && wasm-pack build && cd www && npm i && vite",
+    "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -14,7 +23,6 @@
     "@irys/sdk": "^0.1.6",
     "ethers": "^5.7.2",
     "vite-plugin-wasm": "^3.3.0",
-    "irys-wasm-sdk": "file:../pkg",
     "crypto-browserify": "^3.12.0",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
@@ -23,6 +31,11 @@
     "vite-plugin-notifier": "^0.1.5"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.1",
+    "@types/node": "^20.11.16",
+    "prettier": "2.6.2",
+    "rollup-plugin-typescript-paths": "^1.3.0",
+    "tslib": "^2.4.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
   }

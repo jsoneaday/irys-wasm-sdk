@@ -48,16 +48,6 @@ export default defineConfig({
         "vite-plugin-node-polyfills/shims/global",
         "vite-plugin-node-polyfills/shims/process",
       ],
-      plugins: [
-        typescriptPaths({
-          preserveExtensions: true,
-        }),
-        typescript({
-          sourceMap: false,
-          declaration: true,
-          outDir: "dist",
-        }),
-      ],
     },
   },
 });
